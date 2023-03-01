@@ -25,6 +25,12 @@ namespace Algoritmica_Csharp
 
             AfisareMatrice(matrice1);
             AfisareMatrice(matrice2);
+        
+         Console.WriteLine("Rezultatul final a-l matricei generate este : ");
+
+            int[,] diferenta = CalculeazaDiferentaMatrie(matrice1, matrice2, n, m);
+
+            AfisareMatrice(diferenta);
 
             Console.ReadKey();
         }
@@ -56,6 +62,29 @@ namespace Algoritmica_Csharp
                 Console.WriteLine(element);
             }
 
-        } 
+        }
+       
+        // Calculeaz diferenta dintre cele doua matrice generan ca rezultat o noua matrice cu n linii de elemente m coloane de elemente
+        static int[,] CalculeazaDiferentaMatrie(int[,] matrix1, int[,] matrix2, int linii, int coloane)
+        {
+            
+
+            if(matrix1.Length != matrix2.Length || matrix1.Rank != matrix2.Rank || matrix1.GetLength(0) != matrix2.GetLength(0))
+            {
+                return null;
+            }
+
+            int[,] result = new int[linii, coloane];
+
+            for(int i = 0; i < linii; i++)
+            {
+                for(int j = 0; j < coloane; j++)
+                {
+                    result[i, j] = matrix1[i, j] - matrix2[i, j];
+                }
+            }
+
+            return result;
+        }
     }
 }
