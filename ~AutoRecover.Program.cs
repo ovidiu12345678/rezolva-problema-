@@ -8,34 +8,54 @@ namespace Algoritmica_Csharp
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Enter your number of items ! ");
-            int numbers = int.Parse(Console.ReadLine());
+         Console.WriteLine("Introduceti dimensiunile  mattricei !");
+            Console.WriteLine("Matrice linii : ");
+            int n = int.Parse(Console.ReadLine());
 
-            int[] vecor = ReadVectorOfNumbersElements(numbers);
+            Console.WriteLine("Matrice coloane : ");
+            int m = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("The elements of the vector are ! ");
 
-            foreach(int numbersElements in vecor)
-            {
-                Console.WriteLine(numbers);
-            }
+            Console.WriteLine("Introduceti elementele primei matrice ! ");
+            int[,] matrice1 = CitesteMatrice(n, m);
+
+            Console.WriteLine("Introduceti elementele celei de-a doua matrice !");
+            int[,] matrice2 = CitesteMatrice(n, m);
+
+
+            AfisareMatrice(matrice1);
+            AfisareMatrice(matrice2);
 
             Console.ReadKey();
         }
 
-        static int[] ReadVectorOfNumbersElements(int numbers)
-        {
-            int[] result = new int[numbers];
 
-            for(int i = 0; i < result.Length; i++)
+        static int[,] CitesteMatrice(int n, int m)
+        {
+            int[,] matrix = new int[n, m];
+
+            for(int i = 0; i < n; i++)
             {
-                Console.WriteLine("Insert the elements ! ");
-                result[i] = int.Parse(Console.ReadLine());
+                for(int j = 0; j < m; j++)
+                {
+                    Console.WriteLine("Introduceti elementul !");
+
+                    matrix[i, j] = int.Parse(Console.ReadLine());
+                }
             }
 
-            return result;
+            return matrix;
         }
+
+        static void AfisareMatrice(int[,] matrice)
+        {
+            Console.WriteLine("Acesta este  matricea  generate ! ");
+
+            foreach(int element in matrice)
+            {
+                Console.WriteLine(element);
+            }
+
+        } 
     }
 }
