@@ -8,7 +8,9 @@ namespace Algoritmica_Csharp
 {
     class Program
     {
-         Console.WriteLine("Introduceti dimensiunile  mattricei !");
+       /*  static void Main(string[]) args)
+         {
+             Console.WriteLine("Introduceti dimensiunile  mattricei !");
             Console.WriteLine("Matrice linii : ");
             int n = int.Parse(Console.ReadLine());
 
@@ -86,5 +88,37 @@ namespace Algoritmica_Csharp
 
             return result;
         }
+        
+     */  }
+    }
+     static void Main(string[] args)
+        {
+            int[] elementeVector = new int[]{ 70, 10, 40, 60, 30, 50};
+
+           
+          for(int i = 0; i < elementeVector.Length - 1; i++)
+            {
+                for(int j = i + 1; j < elementeVector.Length; j++)
+                {
+                    if(elementeVector[i] > elementeVector[j])
+                    {
+                        int aux = elementeVector[i];
+                        elementeVector[i] = elementeVector[j];
+                        elementeVector[j] = aux;
+                    }
+                }
+
+            }
+
+          foreach(int elemente in elementeVector)
+            {
+                Console.WriteLine(elemente);
+            }
+            Console.ReadKey();
+        }
     }
 }
+
+
+
+
