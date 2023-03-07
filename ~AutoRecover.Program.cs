@@ -115,8 +115,8 @@ namespace Algoritmica_Csharp
                 Console.WriteLine(elemente);
             }
             Console.ReadKey();
-     */  } 
-        
+       } 
+        */
         static void Main(string[] args)
         {
             string mesajClient = "Va rugam sa introduceti numarul de elemente ce doriti sa il ocupati in vector !";
