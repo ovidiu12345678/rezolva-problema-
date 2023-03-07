@@ -89,7 +89,7 @@ namespace Algoritmica_Csharp
             return result;
         }
         
-     */  }
+       }
     }
      static void Main(string[] args)
         {
@@ -115,10 +115,55 @@ namespace Algoritmica_Csharp
                 Console.WriteLine(elemente);
             }
             Console.ReadKey();
+     */  } 
+        
+        static void Main(string[] args)
+        {
+            string mesajClient = "Va rugam sa introduceti numarul de elemente ce doriti sa il ocupati in vector !";
+
+            string tiparesteMesaj = Tipareste(mesajClient);
+
+            Console.WriteLine("Adauga numar elemente : ");
+            int adaugaElemente = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Introduceti elementele dorite in vector : ");
+            int[] vectorElemente = CitesteElementeVectorDeLaTastatura(adaugaElemente);
+
+            Console.WriteLine("Acestea sunt elementele pe care lea-ti introdus in vector : ");
+            AfiseazaElementeleDinVector(vectorElemente);
+
+            Console.ReadKey();
+
+        }
+
+        static string Tipareste(string mesajClient)
+        {
+            Console.WriteLine(mesajClient);
+
+            return mesajClient;
+        }
+
+        static int[] CitesteElementeVectorDeLaTastatura(int adaugaElemente)
+        {
+            int[] vectorElemente = new int[adaugaElemente];
+
+            for (int i = 0; i < vectorElemente.Length; i++)
+            {
+                vectorElemente[i] = int.Parse(Console.ReadLine());
+            }
+
+            return vectorElemente;
+        }
+
+        static void AfiseazaElementeleDinVector(int[] vectorElemente)
+        {
+
+            foreach (int trecePrinColectieVector in vectorElemente)
+            {
+                Console.WriteLine(trecePrinColectieVector);
+            }
         }
     }
 }
-
-
 
 
