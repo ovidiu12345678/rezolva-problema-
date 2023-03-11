@@ -116,7 +116,7 @@ namespace Algoritmica_Csharp
             }
             Console.ReadKey();
        } 
-        */
+        
         static void Main(string[] args)
         {
             string mesajClient = "Va rugam sa introduceti numarul de elemente ce doriti sa il ocupati in vector !";
@@ -162,7 +162,90 @@ namespace Algoritmica_Csharp
             {
                 Console.WriteLine(trecePrinColectieVector);
             }
+       */ }
+    
+         static void Main(string[] args)
+        {
+            string mesajClient = "Va rugam sa introduceti numarul de elemente ce doriti sa il ocupati in vector !";
+
+            string tiparesteMesaj = Tipareste(mesajClient);
+
+            Console.WriteLine("Adauga numar elemente : ");
+            int adaugaElemente = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Introduceti elementele dorite in vector : ");
+            int[] vectorElemente = CitesteElementeVectorDeLaTastatura(adaugaElemente);
+
+            Console.WriteLine("Acestea sunt elementele pe care lea-ti introdus in vector : ");
+            AfiseazaElementeleDinVector(vectorElemente);
+
+            Console.WriteLine("Elementele din vector au fost sortate cerescator !");
+            int[] vectorSortat = SorteazaElementeVectorCrescator(adaugaElemente);
+
+            Console.WriteLine("Acestea sunt elementele sortate din noul vector generat de dumneavoastra : ");
+            AfiseazaNouVectorDeElementeSortatCrescator(vectorElemente);
+
+            Console.ReadKey();
+
         }
+
+        static string Tipareste(string mesajClient)
+        {
+            Console.WriteLine(mesajClient);
+
+            return mesajClient;
+        }
+
+        static int[] CitesteElementeVectorDeLaTastatura(int adaugaElemente)
+        {
+            int[] vectorElemente = new int[adaugaElemente];
+
+            for (int i = 0; i < vectorElemente.Length; i++)
+            {
+                vectorElemente[i] = int.Parse(Console.ReadLine());
+            }
+
+            return vectorElemente;
+        }
+
+        static void AfiseazaElementeleDinVector(int[] vectorElemente)
+        {
+
+            foreach (int trecePrinColectieVector in vectorElemente)
+            {
+                Console.WriteLine(trecePrinColectieVector);
+            }
+        }
+
+        static int[] SorteazaElementeVectorCrescator(int adaugaElemente)
+        {
+            int[] vectorElemente = new int[adaugaElemente];
+
+            int aux;
+
+            for(int i = 0; i < vectorElemente.Length - 1; i++)
+            {
+                for(int j = i + 1; j < vectorElemente.Length; j++)
+                {
+                   if(vectorElemente[i] > vectorElemente[j])
+                    {
+                        aux = vectorElemente[i];
+                        vectorElemente[i] = vectorElemente[j];
+                        vectorElemente[j] = aux;
+                    }
+                }
+            }
+            return vectorElemente;
+        }
+
+        static void AfiseazaNouVectorDeElementeSortatCrescator(int[] vectorElemente)
+        {
+            foreach(int trecePrinElementeDeVector in vectorElemente)
+            {
+                Console.WriteLine(trecePrinElementeDeVector);
+            }
+        }
+    }
     }
 }
 
