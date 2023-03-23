@@ -164,7 +164,7 @@ namespace Algoritmica_Csharp
             }
        */ }
     
-         static void Main(string[] args)
+      /*   static void Main(string[] args)
         {
             string mesajClient = "Va rugam sa introduceti numarul de elemente ce doriti sa il ocupati in vector !";
 
@@ -244,6 +244,52 @@ namespace Algoritmica_Csharp
             {
                 Console.WriteLine(trecePrinElementeDeVector);
             }
+    */    }
+
+
+          
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Introduceti numarul de elemente al vectorului ");
+            int numare = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Introduceti {numare} numere: ");
+
+            int[] vector = new int[numare];
+
+            for (int i = 0; i < numare; i++)
+            {
+                vector[i] = int.Parse(Console.ReadLine());
+            }
+
+            int[] inversVector = InversareVector(vector);
+
+            Console.WriteLine("Inversul vectorului este : ");
+
+            foreach(var numar in inversVector)
+            {
+                Console.WriteLine(numar + " ");
+            }
+
+
+            Console.ReadKey();
+        }
+
+
+        static int[] InversareVector(int[] vector)
+        {
+            int startIndex = 0;
+
+            for(int i = vector.Length - 1; i >= vector.Length / 2; i--)
+            {
+                int aux = vector[i];
+                vector[i] = vector[startIndex];
+                vector[startIndex] = aux;
+
+                startIndex++;
+            }
+
+            return vector;
         }
     }
     }
